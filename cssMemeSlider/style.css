@@ -68,21 +68,17 @@ label {
     cursor: pointer;
     width: .5em;
     height: .5em;
-    /* margin: 1% 0.5% 1% 0.5%; */
     background-color: #4ddcd3;
     border-radius: 50%;
-    border: 2px solid #eb0ed1;
+    border: .1em solid #eb0ed1;
     transition: .3s ease-in-out;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
+    margin-right: 2%;
 }
-
-/* img {
-    width: 60vh;
-} */
 
 p {
     width: 100%;
@@ -98,6 +94,7 @@ p {
     display: none;
     margin-left: auto;
     margin-right: auto;
+    transition: .3s ease-in-out;
 }
 
 .container-desc-1,
@@ -107,7 +104,6 @@ p {
 .container-desc-5 {
     opacity: 0;
     display: none;
-    /* width: 70%; */
 }
 
 #slide_1:checked ~ * .img-1,
@@ -115,7 +111,7 @@ p {
 #slide_3:checked ~ * .img-3,
 #slide_4:checked ~ * .img-4,
 #slide_5:checked ~ * .img-5 {
-    animation: slider 1s ease-in forwards;
+    animation: slider .5s ease-in forwards;
     display: block;
 }
 
@@ -160,14 +156,6 @@ label:active>.label {
     background-color: #eb0ed1;
 }
 
-
-
-/* #slide_1:checked ~ .img-1,
-#slide_1:checked ~ * .img-1 {
-    animation: slider 1s ease-in forwards;
-    display: block;
-} */
-
 #slide_1:checked ~ * .container-desc-1,
 #slide_2:checked ~ * .container-desc-2,
 #slide_3:checked ~ * .container-desc-3,
@@ -175,4 +163,68 @@ label:active>.label {
 #slide_5:checked ~ * .container-desc-5 {
     animation: text 1s ease-in forwards;
     display: block;
+}
+
+@media(max-width: 850px) {
+    @keyframes slider {
+            from {
+                width: 0;
+            }
+    
+            to {
+                width: 50vh;
+            }
+        }
+
+    .wrapper {
+        min-height: 60vh;
+    }
+}
+
+@media(max-width: 740px) {
+    @keyframes slider {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 40vh;
+        }
+    }
+
+    .wrapper {
+        min-height: 50vh;
+    }
+}
+
+@media(max-width: 580px) {
+    @keyframes slider {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 30vh;
+        }
+    }
+
+    .wrapper {
+        min-height: 40vh;
+    }
+
+    .wrapperForBottom {
+        gap: 1em;
+        margin-top: 1em;
+        flex-wrap: wrap;
+        flex-direction: column-reverse
+    }
+
+    .wrapperForDesc {
+        width: 100%;
+    }
+
+    .buttons {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
