@@ -39,7 +39,7 @@ p {
 }
 
 .slider-container {
-    max-width: 1024px;
+    max-width: 100vh;
 }
 
 .wrapper {
